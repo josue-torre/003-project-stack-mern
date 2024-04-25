@@ -43,3 +43,5 @@ usuarioCtrl.getUsuario = async(req, res) =>{
     })
     res.json({nessage: 'El usuario ha sido actualizado'})
 }
+
+module.exports = usuarioCtrl;
