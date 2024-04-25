@@ -21,12 +21,25 @@ usuarioCtrl.postUsuario = async(req, res) =>{
     res.json({message: "El usuario ha sido creado"})
 
 }
-usuarioCtrl.getUsuario = async(req, res) =>{
+usuarioCtrl.getUsu = async(req, res) =>{
+    const usuario = await Usuario.findById(req.params.id)
+    res.json(usuario)    
+
+}
+usuarioCtrl.deleteUsuario = async(req, res) =>{
+    await Usuario.findOneAndDelete(req.params.id)
+    res.json({message: 'Usuario ha sido eliminado'})
     
 }
 usuarioCtrl.getUsuario = async(req, res) =>{
-    
-}
-usuarioCtrl.getUsuario = async(req, res) =>{
-    
+    const {nombre, apellido, correo, telefono, edad} = req.body;
+    // necesitamos nuevos parametros para pasar el cuerpo 
+    await Usuario.findOneAndUpdate(req.params.id, {
+        nombre,
+        apellido,
+        edad,
+        correo,
+        telefono
+    })
+    res.json({nessage: 'El usuario ha sido actualizado'})
 }
