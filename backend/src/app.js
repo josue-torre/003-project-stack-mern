@@ -1,9 +1,17 @@
 // Definimos la configuración del servidor
 const express = require('express') 
-const conrs = require('cors')
+const cors = require('cors')
 const app = express();
 
 // Configuracion
 app.set('port', process.env.PORT || 4000)
 
+// Middlewares
+app.use(cors())
+app.use(express.json())
+
+// Rutas
+app.get('/', (req, res)=>{
+    res.send('Bienvenido a mi API restFull')
+})
 module.exports = app;
