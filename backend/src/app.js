@@ -12,6 +12,9 @@ app.use(express.json())
 
 // Rutas
 app.get('/', (req, res)=>{
-    res.send('Bienvenido a mi API restFull')
+    res.send('Bienvenido a mi API restFull');
 })
+
+// ruta para la API de usuarios
+app.use('/api/usuarios', require('./routes/usuario'))
 module.exports = app;

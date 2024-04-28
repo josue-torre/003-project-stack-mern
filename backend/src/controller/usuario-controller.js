@@ -6,7 +6,7 @@ usuarioCtrl.getUsuario = async(req, res) =>{
     const usuarios = await Usuario.find()
     res.json(usuarios)
 }
-usuarioCtrl.postUsuario = async(req, res) =>{
+usuarioCtrl.createUsuario = async(req, res) =>{
     // Destructuracion que venga de parte del cliente (request tiene un cuerpo que viene con todo json que es el objeto)
     const {nombre, apellido, correo, telefono, edad} = req.body;
     const newUsuario = new Usuario({
@@ -31,7 +31,7 @@ usuarioCtrl.deleteUsuario = async(req, res) =>{
     res.json({message: 'Usuario ha sido eliminado'})
     
 }
-usuarioCtrl.getUsuario = async(req, res) =>{
+usuarioCtrl.updateUsuario = async(req, res) =>{
     const {nombre, apellido, correo, telefono, edad} = req.body;
     // necesitamos nuevos parametros para pasar el cuerpo 
     await Usuario.findOneAndUpdate(req.params.id, {
@@ -41,7 +41,7 @@ usuarioCtrl.getUsuario = async(req, res) =>{
         correo,
         telefono
     })
-    res.json({nessage: 'El usuario ha sido actualizado'})
+    res.json({message: 'El usuario ha sido actualizado'})
 }
 
 module.exports = usuarioCtrl;
