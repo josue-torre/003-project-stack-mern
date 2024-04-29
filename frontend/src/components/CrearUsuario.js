@@ -5,7 +5,7 @@ const CrearUsuario = () => {
         <div className='col-md-6 offset-md-3'>
             <div className='card card-body'>
                 <form>
-                    <h2 className='text-center mb-3'>Craer usuario</h2>
+                    <h2 className='text-center mb-3'>Crear usuario</h2>
                     <div className='mb-3'>
                         <label>Nombre:</label>
                         <input type='text' className='form-control' placeholder='Ingrese el nombre' required />
