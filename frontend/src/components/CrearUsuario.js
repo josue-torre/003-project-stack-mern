@@ -32,7 +32,7 @@ const CrearUsuario = () => {
             correo: usuario.correo
         }
 
-        await axios.post('')
+        await axios.post('http://localhost:4000/api/usuarios');
 
 
         // borrado despues de guardar
